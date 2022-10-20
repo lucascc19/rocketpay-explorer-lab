@@ -9,9 +9,8 @@ function setCardType(type){
   const colors = {
   "visa": ["#436D99", "#2Df7F2"],
   "mastercard": ["#DF6F29", "#C69347"],
-  "elo": ["#C69347", "#DF6F29"],
+  "elo": ["#7F47C6", "#2930DF"],
   "hipercard": ["#994343", "#F22D2D"],
-  "nubank": ["#9C2DF2", "#8D4399"],
   default: ["black", "gray"],
   }
   ccBgColor01.setAttribute("fill", colors[type][0])
@@ -76,6 +75,16 @@ const cardNumberPattern = {
       mask: "0000 0000 0000 0000",
       regex: /(^5[1-5]\d{0,2}|^22[2-9]\d|^2[3-7]\d{0,2})\d{0,12}/,
       cardtype: "mastercard",
+    },
+    {
+      mask: "0000 0000 0000 0000",
+      regex: /^5\d{0,15}/,
+      cardtype: "elo",
+    },
+    {
+      mask: "0000 0000 0000 0000",
+      regex: /^606282|^3841(?:[0|4|6]{1})0/,
+      cardtype: "hipercard",
     },
     {
       mask: "0000 0000 0000 0000",
